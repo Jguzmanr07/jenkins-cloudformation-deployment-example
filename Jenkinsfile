@@ -29,13 +29,11 @@ pipeline {
     stage('check version') {
       steps {
         ansiColor('xterm') {
-          container("jenkins-agent") {
             sh 'aws --version'
             sh 'aws sts get-caller-identity'
           }
         }
       }
-    }
 
     stage('action') {
       when {
