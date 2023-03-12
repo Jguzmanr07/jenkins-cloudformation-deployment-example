@@ -1,5 +1,5 @@
 AWSTemplateFormatVersion: "2010-09-09"
-Description: "S3 Bucket deployment aws."
+Description: "S3 Bucket deployment aws"
 
 Parameters:
   S3BucketName:
