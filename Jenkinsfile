@@ -1,6 +1,6 @@
 pipeline {
-  agent any 
-  }
+  
+  agent any
 
   parameters {
     string(name: 'STACK_NAME', defaultValue: 'example-stack', description: 'Enter the CloudFormation Stack Name.')
@@ -64,7 +64,6 @@ pipeline {
       }
       steps {
         ansiColor('xterm') {
-          container("jenkins-agent") {
             withCredentials([[
               $class: 'AmazonWebServicesCredentialsBinding',
               credentialsId: "${CFN_CREDENTIALS_ID}",
@@ -75,7 +74,6 @@ pipeline {
           }
         }
       }
-    }
 
     stage('create-changeset') {
       when {
@@ -83,7 +81,6 @@ pipeline {
       }
       steps {
         ansiColor('xterm') {
-          container("jenkins-agent") {
             withCredentials([[
               $class: 'AmazonWebServicesCredentialsBinding',
               credentialsId: "${CFN_CREDENTIALS_ID}",
@@ -94,7 +91,6 @@ pipeline {
           }
         }
       }
-    }
 
     stage('delete-stack') {
       when {
@@ -102,7 +98,6 @@ pipeline {
       }
       steps {
         ansiColor('xterm') {
-          container("jenkins-agent") {
             withCredentials([[
               $class: 'AmazonWebServicesCredentialsBinding',
               credentialsId: "${CFN_CREDENTIALS_ID}",
@@ -114,6 +109,4 @@ pipeline {
         }
       }
     }
-
-  }
 }
