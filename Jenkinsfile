@@ -1,6 +1,6 @@
 pipeline {
   
-  agent any
+  agent label
 
   parameters {
     string(name: 'STACK_NAME', defaultValue: 'example-stack', description: 'Enter the CloudFormation Stack Name.')
