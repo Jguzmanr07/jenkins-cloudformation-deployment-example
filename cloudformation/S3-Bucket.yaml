@@ -1,5 +1,5 @@
 AWSTemplateFormatVersion: "2010-09-09"
-Description: "S3 Bucket TEST"
+Description: "S3 Bucket TEST OK"
 
 Parameters:
   S3BucketName:
